@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="R_EvaluacionItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="resultado"
+        PropertyType=":Double?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="tipo_evaluacion"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="competenciasItem"
+        Association="FK_R_Evaluacion_competencias"
+        FromEnd="R_Evaluacion"
+        ToEnd="competencias" />
+      <NavigationProperty
+        Name="empleadoItem"
+        Association="FK_R_Evaluacion_empleado"
+        FromEnd="R_Evaluacion"
+        ToEnd="empleado" />
+      <NavigationProperty
+        Name="empleados_selecionadosItem"
+        Association="FK_R_Evaluacion_empleados_selecionados"
+        FromEnd="R_Evaluacion"
+        ToEnd="empleados_selecionados" />
+      <NavigationProperty
+        Name="periodosItem"
+        Association="FK_R_Evaluacion_periodos1"
+        FromEnd="R_Evaluacion"
+        ToEnd="periodos" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="Drummond02Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="R_Evaluacion"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="R_EvaluacionItem" />
+    <QueryOperation
+      Name="R_Evaluacion_Single"
+      ReturnType="R_EvaluacionItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad especifican el o los parámetros." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="R_Evaluacion" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="R_Evaluacion_SingleOrDefault"
+      ReturnType="R_EvaluacionItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad se especifica en el o los parámetros, o NULL si la entidad no existe." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="R_Evaluacion" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="Drummond02DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="R_Evaluacion">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="R_Evaluacion" />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="bigint"
+          Property="R_EvaluacionItem/Properties[id]" />
+        <SsdlProperty
+          Name="resultado"
+          Nullable="True"
+          Type="float"
+          Property="R_EvaluacionItem/Properties[resultado]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="tipo_evaluacion"
+          Nullable="True"
+          Type="varchar"
+          Property="R_EvaluacionItem/Properties[tipo_evaluacion]" />
+        <SsdlForeignKeyProperty
+          Name="id_competencia"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_competencia" />
+        <SsdlForeignKeyProperty
+          Name="id_evaluado"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_evaluado" />
+        <SsdlForeignKeyProperty
+          Name="id_empleados_selecionados"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_empleados_selecionados" />
+        <SsdlForeignKeyProperty
+          Name="id_periodo"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_periodo" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>

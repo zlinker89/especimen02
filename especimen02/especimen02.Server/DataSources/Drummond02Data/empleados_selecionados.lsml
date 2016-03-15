@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="empleados_selecionadosItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="estado"
+        PropertyType=":Byte?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado1"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado2"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado3"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado4"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado5"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado6"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado7"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado8"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado9"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="liderado10"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="par1"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="par2"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="par3"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="par4"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="par5"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="jefe"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="empleadoItem"
+        Association="FK_empleados_selecionados_empleado"
+        FromEnd="empleados_selecionados"
+        ToEnd="empleado" />
+      <NavigationProperty
+        Name="periodosItem"
+        Association="FK_empleados_selecionados_periodos1"
+        FromEnd="empleados_selecionados"
+        ToEnd="periodos" />
+      <NavigationProperty
+        Name="R_Evaluacion"
+        Association="FK_R_Evaluacion_empleados_selecionados"
+        FromEnd="empleados_selecionados"
+        ToEnd="R_Evaluacion" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_R_Evaluacion_empleados_selecionados">
+    <AssociationEnd
+      Name="empleados_selecionados"
+      EntityType="empleados_selecionadosItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="R_Evaluacion"
+      Multiplicity="Many"
+      EntityType="R_EvaluacionItem" />
+  </Association>
+  <EntityContainer
+    Name="Drummond02Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="empleados_selecionados"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="empleados_selecionadosItem" />
+    <AssociationSet
+      Name="FK_R_Evaluacion_empleados_selecionados"
+      Association="FK_R_Evaluacion_empleados_selecionados">
+      <AssociationSetEnd
+        Name="empleados_selecionados"
+        EntitySet="empleados_selecionados" />
+      <AssociationSetEnd
+        Name="R_Evaluacion"
+        EntitySet="R_Evaluacion" />
+    </AssociationSet>
+    <QueryOperation
+      Name="empleados_selecionados_Single"
+      ReturnType="empleados_selecionadosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad especifican el o los parámetros." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="empleados_selecionados" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="empleados_selecionados_SingleOrDefault"
+      ReturnType="empleados_selecionadosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad se especifica en el o los parámetros, o NULL si la entidad no existe." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="empleados_selecionados" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="Drummond02DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="empleados_selecionados">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="empleados_selecionados" />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="bigint"
+          Property="empleados_selecionadosItem/Properties[id]" />
+        <SsdlProperty
+          Name="estado"
+          Nullable="True"
+          Type="tinyint"
+          Property="empleados_selecionadosItem/Properties[estado]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado1"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado1]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado2"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado2]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado3"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado3]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado4"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado4]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado5"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado5]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado6"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado6]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado7"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado7]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado8"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado8]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado9"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado9]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="liderado10"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[liderado10]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="par1"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[par1]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="par2"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[par2]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="par3"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[par3]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="par4"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[par4]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="par5"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[par5]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="jefe"
+          Nullable="True"
+          Type="varchar"
+          Property="empleados_selecionadosItem/Properties[jefe]" />
+        <SsdlForeignKeyProperty
+          Name="id_empleados"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_empleados" />
+        <SsdlForeignKeyProperty
+          Name="id_periodos"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_periodos" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_R_Evaluacion_empleados_selecionados">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_R_Evaluacion_empleados_selecionados" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_empleados_selecionados]/Members[empleados_selecionados]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_empleados_selecionados]/Members[R_Evaluacion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_empleados_selecionados" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

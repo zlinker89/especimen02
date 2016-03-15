@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="usuariosItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="nombre_usuario"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="password_usuario"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="empleado"
+        Association="FK_empleado_usuarios"
+        FromEnd="usuarios"
+        ToEnd="empleado" />
+      <NavigationProperty
+        Name="Usuario_Tipo_usuario"
+        Association="FK_Usuario_Tipo_usuario_usuarios"
+        FromEnd="usuarios"
+        ToEnd="Usuario_Tipo_usuario" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_empleado_usuarios">
+    <AssociationEnd
+      Name="usuarios"
+      EntityType="usuariosItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="empleado"
+      Multiplicity="Many"
+      EntityType="empleadoItem" />
+  </Association>
+  <Association
+    Name="FK_Usuario_Tipo_usuario_usuarios">
+    <AssociationEnd
+      Name="usuarios"
+      EntityType="usuariosItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="Usuario_Tipo_usuario"
+      Multiplicity="Many"
+      EntityType="Usuario_Tipo_usuarioItem" />
+  </Association>
+  <EntityContainer
+    Name="Drummond02Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="usuarios"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="usuariosItem" />
+    <AssociationSet
+      Name="FK_empleado_usuarios"
+      Association="FK_empleado_usuarios">
+      <AssociationSetEnd
+        Name="usuarios"
+        EntitySet="usuarios" />
+      <AssociationSetEnd
+        Name="empleado"
+        EntitySet="empleado" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_Usuario_Tipo_usuario_usuarios"
+      Association="FK_Usuario_Tipo_usuario_usuarios">
+      <AssociationSetEnd
+        Name="usuarios"
+        EntitySet="usuarios" />
+      <AssociationSetEnd
+        Name="Usuario_Tipo_usuario"
+        EntitySet="Usuario_Tipo_usuario" />
+    </AssociationSet>
+    <QueryOperation
+      Name="usuarios_Single"
+      ReturnType="usuariosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad especifican el o los parámetros." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="usuarios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="usuarios_SingleOrDefault"
+      ReturnType="usuariosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad se especifica en el o los parámetros, o NULL si la entidad no existe." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="usuarios" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="Drummond02DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="usuarios">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="usuarios" />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="bigint"
+          Property="usuariosItem/Properties[id]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="nombre_usuario"
+          Nullable="False"
+          Type="varchar"
+          Property="usuariosItem/Properties[nombre_usuario]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="password_usuario"
+          Nullable="False"
+          Type="varchar"
+          Property="usuariosItem/Properties[password_usuario]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_empleado_usuarios">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_empleado_usuarios" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_empleado_usuarios]/Members[usuarios]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_empleado_usuarios]/Members[empleado]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_user" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_Usuario_Tipo_usuario_usuarios">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_Usuario_Tipo_usuario_usuarios" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_Usuario_Tipo_usuario_usuarios]/Members[usuarios]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_Usuario_Tipo_usuario_usuarios]/Members[Usuario_Tipo_usuario]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_user" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

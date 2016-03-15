@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="competenciasItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="nombre"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="rango_evaluacion"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="evaluacionItem"
+        Association="FK_competencias_evaluacion"
+        FromEnd="competencias"
+        ToEnd="evaluacion" />
+      <NavigationProperty
+        Name="preguntas_competencia"
+        Association="FK_preguntas_competencia_competencias"
+        FromEnd="competencias"
+        ToEnd="preguntas_competencia" />
+      <NavigationProperty
+        Name="preguntas"
+        Association="FK_preguntas_competencias"
+        FromEnd="competencias"
+        ToEnd="preguntas" />
+      <NavigationProperty
+        Name="R_Evaluacion"
+        Association="FK_R_Evaluacion_competencias"
+        FromEnd="competencias"
+        ToEnd="R_Evaluacion" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_preguntas_competencia_competencias">
+    <AssociationEnd
+      Name="competencias"
+      EntityType="competenciasItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="preguntas_competencia"
+      Multiplicity="Many"
+      EntityType="preguntas_competenciaItem" />
+  </Association>
+  <Association
+    Name="FK_preguntas_competencias">
+    <AssociationEnd
+      Name="competencias"
+      Multiplicity="One"
+      EntityType="competenciasItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="preguntas"
+      Multiplicity="Many"
+      EntityType="preguntasItem" />
+  </Association>
+  <Association
+    Name="FK_R_Evaluacion_competencias">
+    <AssociationEnd
+      Name="competencias"
+      EntityType="competenciasItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="R_Evaluacion"
+      Multiplicity="Many"
+      EntityType="R_EvaluacionItem" />
+  </Association>
+  <EntityContainer
+    Name="Drummond02Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="competencias"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="competenciasItem" />
+    <AssociationSet
+      Name="FK_preguntas_competencia_competencias"
+      Association="FK_preguntas_competencia_competencias">
+      <AssociationSetEnd
+        Name="competencias"
+        EntitySet="competencias" />
+      <AssociationSetEnd
+        Name="preguntas_competencia"
+        EntitySet="preguntas_competencia" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_preguntas_competencias"
+      Association="FK_preguntas_competencias">
+      <AssociationSetEnd
+        Name="competencias"
+        EntitySet="competencias" />
+      <AssociationSetEnd
+        Name="preguntas"
+        EntitySet="preguntas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_R_Evaluacion_competencias"
+      Association="FK_R_Evaluacion_competencias">
+      <AssociationSetEnd
+        Name="competencias"
+        EntitySet="competencias" />
+      <AssociationSetEnd
+        Name="R_Evaluacion"
+        EntitySet="R_Evaluacion" />
+    </AssociationSet>
+    <QueryOperation
+      Name="competencias_Single"
+      ReturnType="competenciasItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad especifican el o los parámetros." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="competencias" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="competencias_SingleOrDefault"
+      ReturnType="competenciasItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad se especifica en el o los parámetros, o NULL si la entidad no existe." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="competencias" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="Drummond02DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="competencias">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="competencias" />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="bigint"
+          Property="competenciasItem/Properties[id]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="nombre"
+          Nullable="True"
+          Type="varchar"
+          Property="competenciasItem/Properties[nombre]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="rango_evaluacion"
+          Nullable="True"
+          Type="varchar"
+          Property="competenciasItem/Properties[rango_evaluacion]" />
+        <SsdlForeignKeyProperty
+          Name="idevaluacion"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="idevaluacion" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_preguntas_competencia_competencias">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_preguntas_competencia_competencias" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_preguntas_competencia_competencias]/Members[competencias]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_preguntas_competencia_competencias]/Members[preguntas_competencia]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_compentecias" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_preguntas_competencias">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_preguntas_competencias" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_preguntas_competencias]/Members[competencias]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_preguntas_competencias]/Members[preguntas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="idcompetencia" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_R_Evaluacion_competencias">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_R_Evaluacion_competencias" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_competencias]/Members[competencias]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_competencias]/Members[R_Evaluacion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_competencia" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>

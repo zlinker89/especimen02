@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="periodosItem">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="id"
+        IsReadOnly="True"
+        PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Hidden />
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="fechainicio"
+        PropertyType=":Date?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="0"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="fechafinal"
+        PropertyType=":Date?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="0"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="metodologia"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="50" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="estado"
+        PropertyType=":Byte?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="nombre"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="250" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="empleados_selecionados"
+        Association="FK_empleados_selecionados_periodos1"
+        FromEnd="periodos"
+        ToEnd="empleados_selecionados" />
+      <NavigationProperty
+        Name="evaluacionItem"
+        Association="FK_periodos_evaluacion1"
+        FromEnd="periodos"
+        ToEnd="evaluacion" />
+      <NavigationProperty
+        Name="R_Evaluacion"
+        Association="FK_R_Evaluacion_periodos1"
+        FromEnd="periodos"
+        ToEnd="R_Evaluacion" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_empleados_selecionados_periodos1">
+    <AssociationEnd
+      Name="periodos"
+      EntityType="periodosItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="empleados_selecionados"
+      Multiplicity="Many"
+      EntityType="empleados_selecionadosItem" />
+  </Association>
+  <Association
+    Name="FK_R_Evaluacion_periodos1">
+    <AssociationEnd
+      Name="periodos"
+      EntityType="periodosItem">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="R_Evaluacion"
+      Multiplicity="Many"
+      EntityType="R_EvaluacionItem" />
+  </Association>
+  <EntityContainer
+    Name="Drummond02Data">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="periodos"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="periodosItem" />
+    <AssociationSet
+      Name="FK_empleados_selecionados_periodos1"
+      Association="FK_empleados_selecionados_periodos1">
+      <AssociationSetEnd
+        Name="periodos"
+        EntitySet="periodos" />
+      <AssociationSetEnd
+        Name="empleados_selecionados"
+        EntitySet="empleados_selecionados" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_R_Evaluacion_periodos1"
+      Association="FK_R_Evaluacion_periodos1">
+      <AssociationSetEnd
+        Name="periodos"
+        EntitySet="periodos" />
+      <AssociationSetEnd
+        Name="R_Evaluacion"
+        EntitySet="R_Evaluacion" />
+    </AssociationSet>
+    <QueryOperation
+      Name="periodos_Single"
+      ReturnType="periodosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad especifican el o los parámetros." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="periodos" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="periodos_SingleOrDefault"
+      ReturnType="periodosItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Devuelve la entidad cuya identidad se especifica en el o los parámetros, o NULL si la entidad no existe." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="periodos" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="id"
+        ParameterType="Microsoft.LightSwitch:Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="Valor de la propiedad clave 'id' de la entidad que se va a recuperar." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="Drummond02DataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="periodos">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="periodos" />
+        <SsdlProperty
+          Name="id"
+          Nullable="False"
+          StoreGeneratedPattern="Identity"
+          Type="bigint"
+          Property="periodosItem/Properties[id]" />
+        <SsdlProperty
+          Name="fechainicio"
+          Nullable="True"
+          Type="date"
+          Property="periodosItem/Properties[fechainicio]" />
+        <SsdlProperty
+          Name="fechafinal"
+          Nullable="True"
+          Type="date"
+          Property="periodosItem/Properties[fechafinal]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="metodologia"
+          Nullable="True"
+          Type="varchar"
+          Property="periodosItem/Properties[metodologia]" />
+        <SsdlProperty
+          Name="estado"
+          Nullable="True"
+          Type="tinyint"
+          Property="periodosItem/Properties[estado]" />
+        <SsdlProperty
+          MaxLength="250"
+          Name="nombre"
+          Nullable="True"
+          Type="varchar"
+          Property="periodosItem/Properties[nombre]" />
+        <SsdlForeignKeyProperty
+          Name="id_evaluacion"
+          Nullable="True"
+          Type="bigint"
+          PropertyName="id_evaluacion" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_empleados_selecionados_periodos1">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_empleados_selecionados_periodos1" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_empleados_selecionados_periodos1]/Members[periodos]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_empleados_selecionados_periodos1]/Members[empleados_selecionados]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_periodos" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_R_Evaluacion_periodos1">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_R_Evaluacion_periodos1" />
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_periodos1]/Members[periodos]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="Drummond02Data/Members[FK_R_Evaluacion_periodos1]/Members[R_Evaluacion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="id_periodo" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ServiceApplication>
