@@ -33,15 +33,17 @@ myapp.Home.LoginForm_postRender = function (element, contentItem) {
 */
 myapp.Home.IniciarSesion_execute = function (screen) {
     var usuario = {
-        nombre: $("#nombre_usuario").val(),
-        contrasena: $("#contrasena").val(),
+        NewId:null,
+        NewNombre: $("#nombre_usuario").val(),
+        NewContrasena: $("#contrasena").val(),
     };
     alert(JSON.stringify(usuario));
     $.ajax({
         type: 'post',
-        data: {'usuario':usuario},
+        data: usuario,
         url: '/api/GetUser/',
         success: function (d) {
+            alert("Resultado es" + JSON.stringify(d));
         }
     });
 };

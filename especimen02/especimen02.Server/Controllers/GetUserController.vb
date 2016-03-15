@@ -26,9 +26,21 @@ Namespace Controllers
         End Function
 
         ' POST: api/GetUser
-        Public Sub PostValue(<FromBody()> ByVal value As String)
+        Public Function PostValue(ByVal obj As UsuarioDTO) As UsuarioDTO
+            Dim usuario As UsuarioDTO = New UsuarioDTO()
 
-        End Sub
+            Using ctx As ServerApplicationContext = ServerApplicationContext.CreateContext()
+                Dim usuariolst = ctx.DataWorkspace.Drummond02Data.usuarios.Where(Function(u) u.nombre_usuario.Equals(obj.NewNombre) & u.password_usuario.Equals(obj.NewContrasena))
+
+                If usuariolst.Count() >= 1 Then
+                    usuario.NewId = usuariolst.FirstOrDefault().id
+                    usuario.NewNombre = usuariolst.FirstOrDefault().nombre_usuario
+                    usuario.NewContrasena = usuariolst.FirstOrDefault().password_usuario
+                End If
+
+                Return usuario
+            End Using
+        End Function
 
         ' PUT: api/GetUser/5
         Public Sub PutValue(ByVal id As Integer, <FromBody()> ByVal value As String)
