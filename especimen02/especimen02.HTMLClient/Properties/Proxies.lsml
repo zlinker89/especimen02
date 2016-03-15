@@ -19,6 +19,18 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
+        Target="ServiceInterface:evaluacionItem" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:periodosItem" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
         Target="ServiceInterface:preguntasItem" />
     </EntityType.Attributes>
   </EntityType>
@@ -26,6 +38,12 @@
     <EntityType.Attributes>
       <Proxy
         Target="ServiceInterface:preguntas_competenciaItem" />
+    </EntityType.Attributes>
+  </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:R_EvaluacionItem" />
     </EntityType.Attributes>
   </EntityType>
   <EntityType>
