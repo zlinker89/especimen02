@@ -226,7 +226,9 @@
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\GetUserController.vb" />
     <Compile Include="DataSources\Drummond02Data\_Drummond02DataService.lsml.vb" />
+    <Compile Include="DTOs\EmpleadoDTO.vb" />
     <Compile Include="DTOs\UsuarioDTO.vb" />
+    <Compile Include="DTOs\UsuarioTipoDTO.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

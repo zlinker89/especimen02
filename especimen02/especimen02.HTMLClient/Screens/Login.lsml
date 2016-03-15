@@ -5,7 +5,7 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="Home">
+    Name="Login">
     <Screen.RootContentItem>
       <ContentItem
         Name="RootContentItem"
@@ -47,7 +47,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <CallExpression
-                          Target="Home/Methods[IniciarSesion]" />
+                          Target="Login/Methods[IniciarSesion]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
@@ -103,10 +103,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="showHome">
+      Name="showLogin">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="Home" />
+          TargetScreen="Login" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

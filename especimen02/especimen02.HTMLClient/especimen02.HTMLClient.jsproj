@@ -75,8 +75,8 @@
     <Content Include="Screens\EmpleadosSet\ViewEmpleados.lsml.js">
       <DependentUpon>ViewEmpleados.lsml</DependentUpon>
     </Content>
-    <Content Include="Screens\Home.lsml.js">
-      <DependentUpon>Home.lsml</DependentUpon>
+    <Content Include="Screens\Login.lsml.js">
+      <DependentUpon>Login.lsml</DependentUpon>
     </Content>
     <Content Include="Scripts\datajs-1.1.3.js" />
     <Content Include="Scripts\datajs-1.1.3.min.js" />
@@ -107,7 +107,7 @@
     <LightSwitchModel Include="Screens\EmpleadosSet\AddEditEmpleados.lsml" />
     <LightSwitchModel Include="Screens\EmpleadosSet\BrowseEmpleadosSet.lsml" />
     <LightSwitchModel Include="Screens\EmpleadosSet\ViewEmpleados.lsml" />
-    <LightSwitchModel Include="Screens\Home.lsml" />
+    <LightSwitchModel Include="Screens\Login.lsml" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="GeneratedArtifacts\model.json">

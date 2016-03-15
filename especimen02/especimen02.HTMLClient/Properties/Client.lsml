@@ -11,7 +11,7 @@
     <Partial
       IsPrimary="True" />
     <HomeScreen
-      Value="Home" />
+      Value="Login" />
   </Application.Attributes>
   <EntityContainerGroup
     Name="DataWorkspace">
@@ -48,6 +48,6 @@
       Method="!module/Methods[showBrowseEmpleadosSet]" />
     <ApplicationNavigationMethodLink
       Name="link1"
-      Method="!module/Methods[showHome]" />
+      Method="!module/Methods[showLogin]" />
   </Application.NavigationItems>
 </Application>

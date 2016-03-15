@@ -30,12 +30,29 @@ Namespace Controllers
             Dim usuario As UsuarioDTO = New UsuarioDTO()
 
             Using ctx As ServerApplicationContext = ServerApplicationContext.CreateContext()
-                Dim usuariolst = ctx.DataWorkspace.Drummond02Data.usuarios.Where(Function(u) u.nombre_usuario.Equals(obj.NewNombre) & u.password_usuario.Equals(obj.NewContrasena))
+                Dim usuariolst = From u In ctx.DataWorkspace.Drummond02Data.usuarios
+                                 Where u.nombre_usuario.Equals(obj.NewNombre) & u.password_usuario.Equals(obj.NewContrasena)
 
                 If usuariolst.Count() >= 1 Then
+                    ' obtenemos el usuario
                     usuario.NewId = usuariolst.FirstOrDefault().id
                     usuario.NewNombre = usuariolst.FirstOrDefault().nombre_usuario
                     usuario.NewContrasena = usuariolst.FirstOrDefault().password_usuario
+                    ' obtenemos el empleado
+                    usuario.NewEmpleadoDTO = New EmpleadoDTO()
+                    usuario.NewEmpleadoDTO.NewId = usuariolst.FirstOrDefault().empleadoQuery.FirstOrDefault().id
+                    usuario.NewEmpleadoDTO.NewCedula = usuariolst.FirstOrDefault().empleadoQuery.FirstOrDefault().cedula
+                    usuario.NewEmpleadoDTO.NewNombre = usuariolst.FirstOrDefault().empleadoQuery.FirstOrDefault().Nombre
+                    ' obtenemos los tipos o roles
+                    usuario.NewUsuarioTipo = New List(Of UsuarioTipoDTO)
+                    Dim tiposlst = usuariolst.FirstOrDefault().Usuario_Tipo_usuarioQuery
+
+                    For Each tipoItem As Usuario_Tipo_usuarioItem In tiposlst
+                        Dim tipos As UsuarioTipoDTO = New UsuarioTipoDTO()
+                        tipos.NewId = tipoItem.tipo_usuarioItem.id
+                        tipos.NewTipo = tipoItem.tipo_usuarioItem.tipo_usuario
+                        usuario.NewUsuarioTipo.Add(tipos)
+                    Next
                 End If
 
                 Return usuario
