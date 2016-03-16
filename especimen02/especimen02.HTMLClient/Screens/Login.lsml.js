@@ -6,6 +6,20 @@ myapp.Login.LoginForm_postRender = function (element, contentItem) {
         "margin": "0 auto"
     });
 };
+myapp.Login.cajaBoton_postRender = function (element, contentItem) {
+    $(element).find('div').css({
+        "width": "50%",
+        "margin": "0 auto",
+    });
+    
+    $(element).find('a').css({
+        "width": "100px",
+        "margin": "0 auto",
+        "padding-top": "5px",
+        "padding-bottom": "5px",
+        // EVA CAMBIAR COLORES BOTON LOGIN 
+    });
+};
 myapp.Login.nombreusuario_render = function (element, contentItem) {
     $(element).parent().css({
         "font-weight": "700",
@@ -37,7 +51,4 @@ myapp.Login.IniciarSesion_execute = function (screen) {
             alert("Resultado es" + JSON.stringify(d));
         }
     });
-};
-myapp.Login.IniciarSesion_postRender = function (element, contentItem) {
-    // hacer css
 };
