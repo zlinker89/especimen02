@@ -40,4 +40,5 @@ myapp.Login.IniciarSesion_execute = function (screen) {
 };
 myapp.Login.IniciarSesion_postRender = function (element, contentItem) {
     // hacer css
+
 };

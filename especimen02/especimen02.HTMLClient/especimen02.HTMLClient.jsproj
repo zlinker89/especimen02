@@ -39,10 +39,19 @@
   <ItemGroup>
     <Content Include="Content\dark-theme-2.5.3.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\antes.png" />
+    <Content Include="Content\Images\ayuda.png" />
+    <Content Include="Content\Images\añadir.png" />
+    <Content Include="Content\Images\close.png" />
+    <Content Include="Content\Images\editar.png" />
+    <Content Include="Content\Images\empleados.png" />
+    <Content Include="Content\Images\icono.png" />
     <Content Include="Content\Images\icons-18-black.png" />
     <Content Include="Content\Images\icons-18-white.png" />
     <Content Include="Content\Images\icons-36-black.png" />
     <Content Include="Content\Images\icons-36-white.png" />
+    <Content Include="Content\Images\imprimir.png" />
+    <Content Include="Content\Images\lista.png" />
     <Content Include="Content\Images\msls-black-icons-18.png" />
     <Content Include="Content\Images\msls-black-icons-36.png" />
     <Content Include="Content\Images\msls-loader-dark.gif" />
@@ -50,6 +59,11 @@
     <Content Include="Content\Images\msls-white-icons-18.png" />
     <Content Include="Content\Images\msls-white-icons-36.png" />
     <Content Include="Content\Images\msls-blue-icons-36.png" />
+    <Content Include="Content\Images\next.png" />
+    <Content Include="Content\Images\notificaciones.png" />
+    <Content Include="Content\Images\pdf.png" />
+    <Content Include="Content\Images\periodos.png" />
+    <Content Include="Content\Images\subir.png" />
     <Content Include="Content\jquery.mobile-1.3.0.css" />
     <Content Include="Content\jquery.mobile-1.3.0.min.css" />
     <Content Include="Content\jquery.mobile.structure-1.3.0.css" />
@@ -75,8 +89,20 @@
     <Content Include="Screens\EmpleadosSet\ViewEmpleados.lsml.js">
       <DependentUpon>ViewEmpleados.lsml</DependentUpon>
     </Content>
+    <Content Include="Screens\evaluacion\ViewevaluacionItem.lsml.js">
+      <DependentUpon>ViewevaluacionItem.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\home.lsml.js">
+      <DependentUpon>home.lsml</DependentUpon>
+    </Content>
     <Content Include="Screens\Login.lsml.js">
       <DependentUpon>Login.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\periodos\ViewperiodosItem.lsml.js">
+      <DependentUpon>ViewperiodosItem.lsml</DependentUpon>
+    </Content>
+    <Content Include="Screens\ReportesSet\ViewReportes.lsml.js">
+      <DependentUpon>ViewReportes.lsml</DependentUpon>
     </Content>
     <Content Include="Scripts\datajs-1.1.3.js" />
     <Content Include="Scripts\datajs-1.1.3.min.js" />
@@ -103,11 +129,24 @@
       <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
     <LightSwitchModel Include="Properties\Drummond02Data\empleado.lsml" />
+    <LightSwitchModel Include="Properties\Drummond02Data\evaluacion.lsml" />
+    <LightSwitchModel Include="Properties\Drummond02Data\periodos.lsml" />
+    <LightSwitchModel Include="Properties\Drummond02Data\R_Evaluacion.lsml" />
     <LightSwitchModel Include="Properties\Proxies.lsml" />
     <LightSwitchModel Include="Screens\EmpleadosSet\AddEditEmpleados.lsml" />
     <LightSwitchModel Include="Screens\EmpleadosSet\BrowseEmpleadosSet.lsml" />
     <LightSwitchModel Include="Screens\EmpleadosSet\ViewEmpleados.lsml" />
+    <LightSwitchModel Include="Screens\evaluacion\AddEditevaluacionItem.lsml" />
+    <LightSwitchModel Include="Screens\evaluacion\Browseevaluacion.lsml" />
+    <LightSwitchModel Include="Screens\evaluacion\ViewevaluacionItem.lsml" />
+    <LightSwitchModel Include="Screens\home.lsml" />
     <LightSwitchModel Include="Screens\Login.lsml" />
+    <LightSwitchModel Include="Screens\periodos\AddEditperiodosItem.lsml" />
+    <LightSwitchModel Include="Screens\periodos\Browseperiodos.lsml" />
+    <LightSwitchModel Include="Screens\periodos\ViewperiodosItem.lsml" />
+    <LightSwitchModel Include="Screens\ReportesSet\AddEditReportes.lsml" />
+    <LightSwitchModel Include="Screens\ReportesSet\BrowseReportesSet.lsml" />
+    <LightSwitchModel Include="Screens\ReportesSet\ViewReportes.lsml" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="GeneratedArtifacts\model.json">

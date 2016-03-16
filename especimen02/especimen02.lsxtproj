@@ -111,12 +111,6 @@
       <Type>Server</Type>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <LightSwitchExtension Include="Extensions\Microsoft.LightSwitch.Extensions.lspkg">
-      <ExtensionId>Microsoft.LightSwitch.Extensions</ExtensionId>
-      <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>
-    </LightSwitchExtension>
-  </ItemGroup>
   <ItemGroup Condition="'$(AuthenticationType)' == 'Forms'">
     <_BuildFile Include="especimen02.Server\LogIn.aspx">
       <SubFolder>
@@ -130,6 +124,12 @@
       <PublishType>
       </PublishType>
     </_BuildFile>
+  </ItemGroup>
+  <ItemGroup>
+    <LightSwitchExtension Include="Extensions\Microsoft.LightSwitch.Extensions.lspkg">
+      <ExtensionId>Microsoft.LightSwitch.Extensions</ExtensionId>
+      <Server>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</Server>
+    </LightSwitchExtension>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>

@@ -49,5 +49,17 @@
     <ApplicationNavigationMethodLink
       Name="link1"
       Method="!module/Methods[showLogin]" />
+    <ApplicationNavigationMethodLink
+      Name="link2"
+      Method="!module/Methods[showBrowseevaluacion]" />
+    <ApplicationNavigationMethodLink
+      Name="link3"
+      Method="!module/Methods[showBrowseperiodos]" />
+    <ApplicationNavigationMethodLink
+      Name="link4"
+      Method="!module/Methods[showBrowseReportesSet]" />
+    <ApplicationNavigationMethodLink
+      Name="link5"
+      Method="!module/Methods[showhome]" />
   </Application.NavigationItems>
 </Application>
