@@ -51,6 +51,16 @@
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="110"
+                          ResultType=":Double" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
                 </ContentItem.PropertySources>
               </ContentItem>
             </ContentItem>
